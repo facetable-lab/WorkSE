@@ -31,3 +31,23 @@ class Language(models.Model):
 
         verbose_name = 'Язык программирования'
         verbose_name_plural = 'Языки программирования'
+
+
+class Vacancy(models.Model):
+    """Модель вакансий"""
+    url = models.URLField()
+    title = models.CharField('Должность', max_length=250)
+    company = models.CharField('Компания', max_length=250)
+    description = models.TextField(verbose_name='Описание')
+    city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name='Город')
+    language = models.ForeignKey(Language, on_delete=models.CASCADE, verbose_name='Язык программирования')
+
+    def __str__(self):
+        """Строковое представление объекта, в т.ч и в админке"""
+        return self.name
+
+    class Meta:
+        """Отображение названия модели в админке"""
+
+        verbose_name = 'Вакансия'
+        verbose_name_plural = 'Вакансии'
