@@ -24,6 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Приложение парсера
+    'parser.apps.ParserConfig'
 ]
 
 # Связующее программное обеспечение, которое помогает приложению и серверу обмениваться друг с другом запросами
