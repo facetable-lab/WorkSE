@@ -46,7 +46,7 @@ ROOT_URLCONF = 'work_search_engine.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'parser/templates'],
+        'DIRS': [BASE_DIR / 'templates', BASE_DIR / 'parser/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
