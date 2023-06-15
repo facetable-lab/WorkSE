@@ -9,17 +9,19 @@ WorkSE
 {% block content %}
 <h1 class="mt-1">Все вакансии</h1>
 
-{% for vacancy in vacancy_qs %}
+{% for v in vacancy_qs %}
 
 <div class="card mt-3">
-    <h5 class="card-header">{{ vacancy.city }}</h5>
+    <h5 class="card-header"><a href="{{ vacancy.url }}" target="_blank">{{ v.title }}</a></h5>
     <div class="card-body">
-        <h5 class="card-title"><a href="{{ vacancy.url }}" target="_blank">{{ vacancy.title }}</a></h5>
-        <p class="card-text">{{ vacancy.description }}</p>
+        <h5 class="card-title">{{ v.company }}</h5>
+        <p class="card-text">{{ v.description }}</p>
+
 <!--        <a href="#" class="btn btn-primary">Go somewhere</a>-->
+
     </div>
     <div class="card-footer text-body-secondary">
-        {{ vacancy.timestamp }}
+       {{ v.city.name }} | {{ v.language.name }} | {{ v.timestamp }}
     </div>
 </div>
 
