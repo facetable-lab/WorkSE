@@ -10,6 +10,7 @@ class CityAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
+# Регистрация модели City
 admin.site.register(models.City, CityAdmin)
 
 
@@ -20,4 +21,7 @@ class LanguageAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
+# Регистрация модели Language
 admin.site.register(models.Language, LanguageAdmin)
+# Регистрация модели Vacancy
+admin.site.register(models.Vacancy)
