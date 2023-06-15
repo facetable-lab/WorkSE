@@ -39,12 +39,13 @@ class Vacancy(models.Model):
     title = models.CharField('Должность', max_length=250)
     company = models.CharField('Компания', max_length=250)
     description = models.TextField(verbose_name='Описание')
+    timestamp = models.DateField(auto_now_add=True, verbose_name='Дата публикации')
     city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name='Город')
     language = models.ForeignKey(Language, on_delete=models.CASCADE, verbose_name='Язык программирования')
 
     def __str__(self):
         """Строковое представление объекта, в т.ч и в админке"""
-        return self.name
+        return self.title
 
     class Meta:
         """Отображение названия модели в админке"""
