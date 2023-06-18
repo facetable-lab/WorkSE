@@ -1,30 +1,46 @@
 {% extends "base.html" %}
-
+{% load static %}
 
 {% block title %}
 WorkSE
 {% endblock title %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock custom_css %}
 
 
 {% block content %}
 <h1 class="mt-1">Все вакансии</h1>
 
 {% for v in vacancy_qs %}
-
 <div class="card mt-3">
     <h5 class="card-header"><a href="{{ vacancy.url }}" target="_blank">{{ v.title }}</a></h5>
     <div class="card-body">
-        <h5 class="card-title">{{ v.company }}</h5>
+        <h5 class="card-title"СВ>{{ v.company }}</h5>
         <p class="card-text">{{ v.description }}</p>
 
-<!--        <a href="#" class="btn btn-primary">Go somewhere</a>-->
+        <!--        <a href="#" class="btn btn-primary">Go somewhere</a>-->
 
     </div>
     <div class="card-footer text-body-secondary">
-       {{ v.city.name }} | {{ v.language.name }} | {{ v.timestamp }}
+        {{ v.city.name }} | {{ v.language.name }} | {{ v.timestamp }}
     </div>
 </div>
-
 {% endfor %}
 
+<form action="">
+    <label for="city">Город:</label><br>
+    <input type="text" name="city" id="city"><br>
+    <label for="language">Специальность:</label><br>
+    <input type="text" name="language" id="language"><br>
+
+    <button type="submit">Найти</button>
+</form>
+
 {% endblock content %}
+
+{% block custom_js %}
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock custom_js %}
+
