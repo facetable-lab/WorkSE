@@ -13,11 +13,17 @@ WorkSE
 {% block content %}
 <h1 class="mt-1">Все вакансии</h1>
 
+<form action="">
+    {{ form.as_p }}
+
+    <button type="submit">Найти</button>
+</form>
+
 {% for v in vacancy_qs %}
 <div class="card mt-3">
     <h5 class="card-header"><a href="{{ vacancy.url }}" target="_blank">{{ v.title }}</a></h5>
     <div class="card-body">
-        <h5 class="card-title"СВ>{{ v.company }}</h5>
+        <h5 class="card-title" СВ>{{ v.company }}</h5>
         <p class="card-text">{{ v.description }}</p>
 
         <!--        <a href="#" class="btn btn-primary">Go somewhere</a>-->
@@ -29,14 +35,6 @@ WorkSE
 </div>
 {% endfor %}
 
-<form action="">
-    <label for="city">Город:</label><br>
-    <input type="text" name="city" id="city"><br>
-    <label for="language">Специальность:</label><br>
-    <input type="text" name="language" id="language"><br>
-
-    <button type="submit">Найти</button>
-</form>
 
 {% endblock content %}
 
