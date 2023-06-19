@@ -25,3 +25,5 @@ admin.site.register(models.Language, LanguageAdmin)
 admin.site.register(models.Vacancy)
 # Регистрация модели Error
 admin.site.register(models.Error)
+# Регистрация модели Url
+admin.site.register(models.Url)
