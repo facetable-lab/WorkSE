@@ -10,11 +10,11 @@ import django
 
 django.setup()
 
-from parser.models import Vacancy, City, Language
+from parser.models import Vacancy, City, Language, Error
 from parser.parsers import *
 
 _parsers = (
-    (head_hunter, 'https://rostov.hh.ru/search/vacancy?text=python&salary=&area=76&ored_clusters=true'),
+    (head_hunter, 'https://rostov.hh.ru/search/vacancy?text=pythonnnnn&salary=&area=76&ored_clusters=true'),
     (habr_career, 'https://career.habr.com/vacancies?locations[]=c_726&q=python&type=all'),
 )
 
@@ -30,15 +30,16 @@ for func, url in _parsers:
 
 for job in jobs:
     vacancy = Vacancy(**job, city=_city, language=_language)
-    print(vacancy.company)
 
     try:
         vacancy.save()
     except DatabaseError:
-        pass
+        print(f'Ошибка записи вакансии в БД: {vacancy}')
 
-# for i in jobs:
-#     print(i)
-#
-# for i in errors:
-#     print(i)
+err = 'Неизвестно'
+
+if errors:
+    try:
+        err = Error(data=errors).save()
+    except DatabaseError:
+        print(f'Ошибка записи ошибки в БД: {err}')
