@@ -58,7 +58,7 @@ def head_hunter(url):
                     _jobs.append({
                         'title': title.text,
                         'url': title['href'],
-                        'company': company,
+                        'company': company.text,
                         'description': 'Нет информации о компании'
                     })
             else:
