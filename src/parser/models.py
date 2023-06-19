@@ -48,3 +48,15 @@ class Vacancy(models.Model):
 
         verbose_name = 'Вакансия'
         verbose_name_plural = 'Вакансии'
+
+
+class Error(models.Model):
+    timestamp = models.DateField(auto_now_add=True)
+    data = models.JSONField(default={},)
+
+    def __str__(self):
+        return str(self.timestamp)
+
+    class Meta:
+        verbose_name = 'Ошибка'
+        verbose_name_plural = 'Ошибки'
