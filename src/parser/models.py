@@ -18,7 +18,6 @@ class City(models.Model):
 
 
 class Language(models.Model):
-    """Модель языков программирования (специальность)"""
     name = models.CharField('Язык программирования', max_length=50)
     slug = models.CharField(max_length=60, blank=True, verbose_name='URL', unique=True)
 
