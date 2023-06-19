@@ -18,7 +18,6 @@ class City(models.Model):
 
 
 class Language(models.Model):
-    """Модель языков программирования (специальность)"""
     name = models.CharField('Язык программирования', max_length=50)
     slug = models.CharField(max_length=60, blank=True, verbose_name='URL', unique=True)
 
@@ -27,14 +26,11 @@ class Language(models.Model):
         return self.name
 
     class Meta:
-        """Отображение названия модели в админке"""
-
         verbose_name = 'Язык программирования'
         verbose_name_plural = 'Языки программирования'
 
 
 class Vacancy(models.Model):
-    """Модель вакансий"""
     url = models.URLField()
     title = models.CharField('Должность', max_length=250)
     company = models.CharField('Компания', max_length=250)
