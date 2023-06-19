@@ -106,3 +106,6 @@ STATICFILES_DIRS = [
 
 # Тип поля первичного ключа по умолчанию
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Переопределение пользователя
+AUTH_USER_MODEL = 'accounts.MyUser'
