@@ -34,7 +34,6 @@ class Language(models.Model):
 
 
 class Vacancy(models.Model):
-    """Модель вакансий"""
     url = models.URLField()
     title = models.CharField('Должность', max_length=250)
     company = models.CharField('Компания', max_length=250)
