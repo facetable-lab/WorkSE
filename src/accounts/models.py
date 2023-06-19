@@ -9,7 +9,7 @@ class MyUserManager(BaseUserManager):
         if not email:
             raise ValueError('Пользователь должен иметь адрес электронной почты')
 
-        user = self.model(email=self.normalize_email(email),)
+        user = self.model(email=self.normalize_email(email), )
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -53,3 +53,7 @@ class MyUser(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+    class Meta:
+        verbose_name = 'Пользователь'
+        verbose_name_plural = 'Пользователи'
