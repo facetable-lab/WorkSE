@@ -14,7 +14,7 @@ from parser.models import Vacancy, City, Language, Error
 from parser.parsers import *
 
 _parsers = (
-    (head_hunter, 'https://rostov.hh.ru/search/vacancy?text=pythonnnnn&salary=&area=76&ored_clusters=true'),
+    (head_hunter, 'https://rostov.hh.ru/search/vacancy?text=python&salary=&area=76&ored_clusters=true'),
     (habr_career, 'https://career.habr.com/vacancies?locations[]=c_726&q=python&type=all'),
 )
 
