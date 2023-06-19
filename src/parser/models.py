@@ -27,8 +27,6 @@ class Language(models.Model):
         return self.name
 
     class Meta:
-        """Отображение названия модели в админке"""
-
         verbose_name = 'Язык программирования'
         verbose_name_plural = 'Языки программирования'
 
